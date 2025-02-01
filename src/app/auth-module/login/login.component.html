@@ -1,0 +1,43 @@
+<div [ngClass]="['formbg']">
+  <div [ngClass]="['center-div']">
+    <img [ngClass]="['logo-form']" [src]="authImage" alt="Logo de la empresa"/>
+  </div>
+
+  <h2 [ngClass]="['title']">Iniciar Sesión</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" ngClass="['container']">
+   
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="email">Correo Electrónico:</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="loginForm.get('email')!.invalid && loginForm.get('email')!.touched">
+        <small *ngIf="loginForm.get('email')!.hasError('required')">El correo electrónico es obligatorio.</small>
+        <small *ngIf="loginForm.get('email')!.hasError('email')">Ingrese una dirección de correo válida.</small>
+      </div>
+    </div>
+
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="password">Contraseña:</label>
+      <input id="password" type="password" formControlName="password" />
+      <div *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched">
+        <small *ngIf="loginForm.get('password')!.hasError('required')">La contraseña es obligatoria.</small>
+        <small *ngIf="loginForm.get('password')!.hasError('pattern')">
+          La contraseña debe contener al menos 8 caracteres, una mayúscula, una minúscula y un número.
+        </small>
+      </div>
+    </div>
+
+    <!-- 📌 Mostrar mensaje de error -->
+    <div *ngIf="errorMessage" [ngClass]="['error-message']">
+      {{ errorMessage }}
+    </div>
+
+    <div [ngClass]="['a-style']">
+      <a href="/auth/register"> Registrarse </a>
+    </div>
+
+    <button [ngClass]="['btn']" type="submit" [disabled]="loginForm.invalid">
+      Iniciar Sesión
+    </button>
+  </form>
+</div>
