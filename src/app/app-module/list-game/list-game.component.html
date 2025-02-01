@@ -1,0 +1,9 @@
+<div>
+  <h2>Lista de Videojuegos</h2>
+  <div [ngClass]="['card-flex']">
+    <div  *ngFor="let game of videoGames$ | async">
+      <app-game-card [game]="game"></app-game-card> <!-- Aquí usas tu componente personalizado -->
+
+    </div>
+  </div>
+</div>

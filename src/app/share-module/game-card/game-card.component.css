@@ -1,0 +1,80 @@
+/* 
+=====================
+Classes
+=====================
+*/
+.card-container {
+    width: 100%;
+    max-width: 200px;
+    min-height: 500px;
+    margin: 10px;
+    background-color: var(--var-card-dark);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+
+div.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.coin-base,
+.time-left,
+.card-attribute {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.card-attribute {
+    padding-bottom: .5em;
+    border-top: 2px solid var(--var-line-dark);
+}
+
+a.hero-image-container {
+    position: relative;
+    display: block;
+}
+
+
+
+/* Details */
+
+img.eye {
+    position: absolute;
+    width: 100%;
+    max-width: 2em;
+    top: 44%;
+    left: 43%;
+}
+
+@media (min-width:400px) {
+    img.eye {
+        max-width: 3em;
+    }
+}
+
+div.attribution {
+    margin: 0 auto;
+    width: 100%;
+    font: var(--var-para);
+    text-align: center;
+    padding: 1.5em 0 4em 0;
+    color: var(--var-line-dark);
+}
+
+.attribution a {
+    color: var(--var-soft-blue);
+}
+
+@media (min-width:600px) {
+    body {
+        font-size: 18px;
+    }
+}

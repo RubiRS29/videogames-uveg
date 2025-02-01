@@ -1,0 +1,15 @@
+<div class="card-container">
+  
+  <img class="hero-image" [src]="game.image" [alt]="game.title" />
+
+  <main class="main-content">
+    <h2>{{ game.title }}</h2>
+    <p>{{ game.description }}</p>
+    <div class="flex-row">
+      <p>⭐ Rating: {{ game.rating }}</p>
+    </div>
+  </main>
+  <div class="card-attribute">
+    <p>Fecha de lanzamiento: {{ game.releaseDate }}</p>
+  </div>
+</div>

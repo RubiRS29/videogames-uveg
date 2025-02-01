@@ -1,0 +1,62 @@
+<div [ngClass]="['formbg']">
+  <div [ngClass]="['center-div']">
+    <img [ngClass]="['logo-form']" [src]="authImage" alt="Logo de la empresa" />
+  </div>
+
+  <h2 [ngClass]="['title']">Agregar nuevo Videojuego</h2>
+
+  <form [formGroup]="addGameForm" (ngSubmit)="onSubmit()" ngClass="['container']">
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="title">Título:</label>
+      <input id="title" type="text" formControlName="title" />
+      <div *ngIf="addGameForm.get('title')!.invalid && addGameForm.get('title')!.touched">
+        <small *ngIf="addGameForm.get('title')!.hasError('required')">El título es obligatorio.</small>
+        <small *ngIf="addGameForm.get('title')!.hasError('minlength')">El título debe tener al menos 5 caracteres.</small>
+      </div>
+    </div>
+
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="rating">Clasificación:</label>
+      <input id="rating" type="number" formControlName="rating" min="0" max="5" />
+      <div *ngIf="addGameForm.get('rating')!.invalid && addGameForm.get('rating')!.touched">
+        <small *ngIf="addGameForm.get('rating')!.hasError('required')">La clasificación es obligatoria.</small>
+        <small *ngIf="addGameForm.get('rating')!.hasError('min')">La clasificación no puede ser menor a 0.</small>
+        <small *ngIf="addGameForm.get('rating')!.hasError('max')">La clasificación no puede ser mayor a 5.</small>
+      </div>
+    </div>
+
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="description">Descripción:</label>
+      <input type="text" id="description" formControlName="description" />
+      <div *ngIf="addGameForm.get('description')!.invalid && addGameForm.get('description')!.touched">
+        <small *ngIf="addGameForm.get('description')!.hasError('required')">La descripción es obligatoria.</small>
+        <small *ngIf="addGameForm.get('description')!.hasError('minlength')">Debe tener al menos 10 caracteres.</small>
+      </div>
+    </div>
+
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="releaseDate">Fecha de lanzamiento:</label>
+      <input id="releaseDate" type="date" formControlName="releaseDate" />
+      <div *ngIf="addGameForm.get('releaseDate')!.invalid && addGameForm.get('releaseDate')!.touched">
+        <small *ngIf="addGameForm.get('releaseDate')!.hasError('required')">La fecha es obligatoria.</small>
+        <small *ngIf="addGameForm.get('releaseDate')!.hasError('futureDate')">No puede ser una fecha futura.</small>
+      </div>
+    </div>
+
+    <div [ngClass]="['field padding-bottom--24']">
+      <label for="downloads">Descargas:</label>
+      <input id="downloads" type="number" formControlName="downloads" min="0" />
+      <div *ngIf="addGameForm.get('downloads')!.invalid && addGameForm.get('downloads')!.touched">
+        <small *ngIf="addGameForm.get('downloads')!.hasError('required')">El número de descargas es obligatorio.</small>
+        <small *ngIf="addGameForm.get('downloads')!.hasError('min')">No puede ser menor a 0.</small>
+      </div>
+    </div>
+
+    <div [ngClass]="['padding-bottom--24']">
+      <label for="isSoon">Próximamente:</label>
+      <input id="isSoon" type="checkbox" formControlName="isSoon" />
+    </div>
+
+    <input [ngClass]="['btn']" type="submit" [disabled]="addGameForm.invalid" value="Agregar" />
+  </form>
+</div>

@@ -1,0 +1,21 @@
+<nav>
+  <div class="wrapper">
+    <div class="logo-img"><img [src]="logo" class="logo-img"/></div>
+
+    <input type="radio" name="slider" id="menu-btn" />
+    <input type="radio" name="slider" id="close-btn" />
+    <ul class="nav-links">
+      <label for="close-btn" class="btn close-btn"
+        ><i class="fas fa-times"></i
+      ></label>
+      <li><a href="/games/list_games/rating">Mas Populares</a></li>
+      <li><a href="/games/list_games/downloads">Mas descargados</a></li>
+      <li><a href="/games/list_games/soon">Proximamente</a></li>
+      <li><a href="/games/add_games">Agregar</a></li>
+      <li><a  (click)="logout()">Salir</a></li>
+    </ul>
+    <label for="menu-btn" class="btn menu-btn"
+      ><i class="fas fa-bars"></i
+    ></label>
+  </div>
+</nav>
